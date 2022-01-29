@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import PostsContext from '../contexts/PostsContext';
 import Post from '../components/Post';
 import NotFound from '../components/NotFound';
@@ -39,15 +39,24 @@ const PostView = ({ id }) => {
 
   return posts ? (
     post ? (
-      <div>
-        <Post post={post} />
-        <div className="buttons">
-          <button onClick={handleEdit}>Изменить</button>
-          <button onClick={handleDelete}>Удалить</button>
+      <>
+        <div className="header-wrap">
+          <div className="header">
+            <Link to="/" className="close">
+              <span className="material-icons-outlined">close</span>
+            </Link>
+          </div>
         </div>
-        {deleting && <div>Удаление...</div>}
-        {error && <div>{error}</div>}
-      </div>
+        <div className="view">
+          <Post post={post} />
+          <div className="buttons">
+            <button onClick={handleEdit}>Изменить</button>
+            <button onClick={handleDelete}>Удалить</button>
+          </div>
+          {deleting && <div>Удаление...</div>}
+          {error && <div>{error}</div>}
+        </div>
+      </>
     ) : (
       <NotFound />
     )
