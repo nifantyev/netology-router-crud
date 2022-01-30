@@ -39,24 +39,20 @@ const PostView = ({ id }) => {
 
   return posts ? (
     post ? (
-      <>
-        <div className="header-wrap">
-          <div className="header">
-            <Link to="/" className="close">
-              <span className="material-icons-outlined">close</span>
-            </Link>
-          </div>
+      <div className="view">
+        <div className="header">
+          <Link to="/" className="close">
+            <span className="material-icons-outlined">close</span>
+          </Link>
         </div>
-        <div className="view">
-          <Post post={post} />
-          <div className="buttons">
-            <button onClick={handleEdit}>Изменить</button>
-            <button onClick={handleDelete}>Удалить</button>
-          </div>
-          {deleting && <div>Удаление...</div>}
-          {error && <div>{error}</div>}
+        <Post post={post} />
+        <div className="buttons">
+          <button onClick={handleEdit}>Изменить</button>
+          <button onClick={handleDelete}>Удалить</button>
         </div>
-      </>
+        {deleting && <div>Удаление...</div>}
+        {error && <div>{error}</div>}
+      </div>
     ) : (
       <NotFound />
     )
