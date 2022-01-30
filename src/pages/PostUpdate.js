@@ -80,11 +80,10 @@ const PostUpdate = ({ id }) => {
             <span className="material-icons-outlined">emoji_emotions</span>
           </a>
         </div>
-        {saving && <div>Сохранение...</div>}
         {error && <div>{error}</div>}
         <div className="buttons">
-          <button className="button" onClick={handleUpdate}>
-            Сохранить
+          <button className="button" onClick={handleUpdate} disabled={saving}>
+            {saving ? 'Сохранение...' : 'Сохранить'}
           </button>
         </div>
       </div>

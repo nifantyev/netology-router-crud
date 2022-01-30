@@ -73,11 +73,10 @@ const PostCreate = () => {
           <span className="material-icons-outlined">emoji_emotions</span>
         </a>
       </div>
-      {saving && <div>Сохранение...</div>}
       {error && <div>{error}</div>}
       <div className="buttons">
-        <button className="button" onClick={handlePublish}>
-          Опубликовать
+        <button className="button" onClick={handlePublish} disabled={saving}>
+          {saving ? 'Публикация...' : 'Опубликовать'}
         </button>
       </div>
     </div>

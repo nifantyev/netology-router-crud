@@ -47,14 +47,17 @@ const PostView = ({ id }) => {
         </div>
         <Post post={post} />
         <div className="buttons">
-          <button className="button" onClick={handleEdit}>
+          <button className="button" onClick={handleEdit} disabled={deleting}>
             Изменить
           </button>
-          <button className="button button-delete" onClick={handleDelete}>
-            Удалить
+          <button
+            className="button button-delete"
+            onClick={handleDelete}
+            disabled={deleting}
+          >
+            {deleting ? 'Удаление...' : 'Удалить'}
           </button>
         </div>
-        {deleting && <div>Удаление...</div>}
         {error && <div>{error}</div>}
       </div>
     ) : (
