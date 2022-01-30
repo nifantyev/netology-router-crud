@@ -47,8 +47,12 @@ const PostView = ({ id }) => {
         </div>
         <Post post={post} />
         <div className="buttons">
-          <button onClick={handleEdit}>Изменить</button>
-          <button onClick={handleDelete}>Удалить</button>
+          <button className="button" onClick={handleEdit}>
+            Изменить
+          </button>
+          <button className="button button-delete" onClick={handleDelete}>
+            Удалить
+          </button>
         </div>
         {deleting && <div>Удаление...</div>}
         {error && <div>{error}</div>}
