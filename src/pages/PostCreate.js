@@ -40,51 +40,47 @@ const PostCreate = () => {
   }, []);
 
   return (
-    <>
-      <div className="header-wrap">
-        <div className="header">
-          <div className="post-types">
-            <a href="#/" className="post-types__item post-types__item-active">
-              Публикация
-            </a>
-            <a href="#/" className="post-types__item">
-              Фото/видео
-            </a>
-            <a href="#/" className="post-types__item">
-              Прямой эфир
-            </a>
-            <a href="#/" className="post-types__item">
-              Еще
-            </a>
-          </div>
-          <Link to="/" className="close">
-            <span className="material-icons-outlined">close</span>
-          </Link>
-        </div>
-      </div>
-      <div className="create">
-        <div className="form">
-          <div className="form__avatar" />
-          <textarea
-            className="form__textarea"
-            name="content"
-            value={form.content}
-            onChange={handleChange}
-            ref={textareaRef}
-          />
-          <a href="#/" className="form__smile">
-            <span className="material-icons-outlined">emoji_emotions</span>
+    <div className="create">
+      <div className="header">
+        <div className="post-types">
+          <a href="#/" className="post-types__item post-types__item-active">
+            Публикация
+          </a>
+          <a href="#/" className="post-types__item">
+            Фото/видео
+          </a>
+          <a href="#/" className="post-types__item">
+            Прямой эфир
+          </a>
+          <a href="#/" className="post-types__item">
+            Еще
           </a>
         </div>
-        <div className="buttons">
-          <button className="button" onClick={handlePublish}>
-            Опубликовать
-          </button>
-        </div>
-        {saving && <div>Сохранение...</div>}
-        {error && <div>{error}</div>}
+        <Link to="/" className="close">
+          <span className="material-icons-outlined">close</span>
+        </Link>
       </div>
-    </>
+      <div className="form">
+        <div className="form__avatar" />
+        <textarea
+          className="form__textarea"
+          name="content"
+          value={form.content}
+          onChange={handleChange}
+          ref={textareaRef}
+        />
+        <a href="#/" className="form__smile">
+          <span className="material-icons-outlined">emoji_emotions</span>
+        </a>
+      </div>
+      {saving && <div>Сохранение...</div>}
+      {error && <div>{error}</div>}
+      <div className="buttons">
+        <button className="button" onClick={handlePublish}>
+          Опубликовать
+        </button>
+      </div>
+    </div>
   );
 };
 
